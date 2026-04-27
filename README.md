@@ -44,4 +44,4 @@ Do this challenge on the platform at [rustplatform.com/intro](https://rustplatfo
 
 ---
 
-Have fun and follow me on [LinkedIn](https://www.linkedin.com/in/belderbos/) for updates and more Python / Rust / AI content. 🚀 
+Have fun and follow me on [LinkedIn](https://www.linkedin.com/in/bbelderbos/) for updates and more Python / Rust / AI content. 🚀 
