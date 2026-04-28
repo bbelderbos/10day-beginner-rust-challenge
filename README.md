@@ -2,6 +2,29 @@
 
 A hands-on Rust challenge for absolute beginners. One exercise file per weekday — clone once, pull each morning to get the next day's exercises.
 
+## Install Rust
+
+If you don't have Rust installed yet, run this in your terminal:
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+Follow the on-screen prompts (the defaults are fine). Then restart your terminal, or run:
+
+```bash
+source $HOME/.cargo/env
+```
+
+Verify it worked:
+
+```bash
+rustc --version
+cargo --version
+```
+
+You should see version numbers for both. That's it — no other tools needed to start.
+
 ## How it works
 
 Each weekday adds a new file (`src/day01.rs`, `src/day02.rs`, …). Open today's file, read the comments, and fill in the functions until the tests pass.
