@@ -1,6 +1,6 @@
 Bob's 10-Day Rust 🦀 Beginner Challenge - Day 3
 
-Good afternoon Rustaceans! Bit later today, but getting a new mini challenge is here!
+Good afternoon Rustaceans! Bit later today, but the new mini challenge is here!
 
 How did yesterday go, any cool takeaways or questions?
 
@@ -9,10 +9,10 @@ Let's talk about control flow today; `if` and `match`. They're not just for bran
 Today you'll learn:
 - The concept of expressions vs statements and how it affects code structure.
 - The semicolon rule in Rust and how it determines what an expression returns.
-- Exhaustiveness in `match`, preventing unhandled cases at compile time (this is big!)
-- Hint: the `grade` you define will have a useful .chars() method that can help with the match statement that follows.
+- Exhaustiveness in `match`, preventing unhandled cases at compile time (this is huge!)
+- Hint: the `grade` you define will have a useful `.chars().next()` method that can help with the match statement that follows (do check what it returns in order to properly match it!)
 
 Exercise in repo below, comment here when you solve it and what you learned.
-What surprised you most about Rust expressions vs Python statements?
+What surprised you most about Rust expressions vs statements?
 
-Tomorrow a new one; I hope you're getting excited for what Rust has to offer ...
+Tomorrow the next one; I hope you're getting excited for what Rust has to offer ...
