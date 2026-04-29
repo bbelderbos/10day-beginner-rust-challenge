@@ -46,24 +46,20 @@ cargo test
 
 Your solutions live in `src/dayXX.rs`. Because each day is its own file, pulling new days should not cause merge conflicts with your existing solutions.
 
-## Want a guided experience?
-
-Do this challenge on the platform at [rustplatform.com/intro](https://rustplatform.com/intro/) for built-in feedback, hints, and progress tracking.
-
 ## Days planning (Monday 27th of April 2026 - Friday 8th of May 2026)
 
 | Day | Topic |
 |-----|-------|
 | 1 | Hello, Rustacean + Variables and Mutability |
 | 2 | Primitive Types |
-| 3 | Functions and Return Values |
-| 4 | Control Flow |
-| 5 | Strings and Slices |
-| 6 | Vectors |
-| 7 | Enums and Match |
-| 8 | Result Handling |
-| 9 | Ownership and Borrowing |
-| 10 | Pattern Matching |
+| 3 | Control Flow — `if` and `match` as expressions |
+| 4 | Ownership & Borrowing — `&str` vs `String` |
+| 5 | Structs & Methods |
+| 6 | Enums & `Option` |
+| 7 | Vectors & Iteration |
+| 8 | Error Handling with `Result` and `?` |
+| 9 | Closures & Iterators |
+| 10 | Mini Project — Word Frequency Counter (`HashMap`) |
 
 ---
 
