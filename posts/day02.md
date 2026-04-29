@@ -34,7 +34,7 @@ Two ways to proceed from here:
 2. Clone the dedicated GitHub repo where I will put each day's exercise into. I am leaving the solutions out to not spoiler anything.
 
 Ok this concludes day 2.
-Tomorrow we'll look at functions and return values.
+Tomorrow we'll look at functions and two constructs that might surprise you as Python developer: `if` and `match` as expressions that return values. And a real win: the compiler enforcing exhaustive matching, no unhandled cases allowed.
 
 ---
 
