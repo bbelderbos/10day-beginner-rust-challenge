@@ -11,7 +11,7 @@
 ///   'G' → "Decent"
 ///   'P' → "Basic"
 ///   anything else → "None"
-pub fn grade_message(score: i32) -> String {
+fn grade_message(score: i32) -> String {
     todo!()
 }
 

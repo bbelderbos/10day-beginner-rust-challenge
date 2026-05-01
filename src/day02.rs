@@ -1,6 +1,6 @@
 // Day 2: Primitive Types
 
-pub fn describe_types() -> String {
+fn describe_types() -> String {
     // TODO:
     // - Declare an int, float, bool, char, and a tuple (int, &str) using type inference where possible.
     // - Use the `format!` macro to produce a String in the format:

@@ -1,11 +1,11 @@
 // Day 1: Hello, Rustacean + Variables and Mutability
 
-pub fn greet() -> String {
+fn greet() -> String {
     // your code here
     todo!()
 }
 
-pub fn double_counter() -> i32 {
+fn double_counter() -> i32 {
     // your code here
     todo!()
 }

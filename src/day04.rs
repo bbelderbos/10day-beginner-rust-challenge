@@ -3,7 +3,7 @@
 ///
 /// Notice the return type: `&str`. You're returning a slice borrowed from the input,
 /// not a new allocation.
-pub fn first_word(s: &str) -> &str {
+fn first_word(s: &str) -> &str {
     todo!()
 }
 
@@ -11,7 +11,7 @@ pub fn first_word(s: &str) -> &str {
 /// e.g. "hello" → "HELLO!"
 ///
 /// Notice the return type: `String`. You're creating new owned data.
-pub fn shout(s: &str) -> String {
+fn shout(s: &str) -> String {
     todo!()
 }
 

@@ -46,6 +46,24 @@ cargo test
 
 Your solutions live in `src/dayXX.rs`. Because each day is its own file, pulling new days should not cause merge conflicts with your existing solutions.
 
+`cargo test` is your workflow — the exercises are exercised by the tests, not by `main.rs`. If you run `cargo build` or `cargo run` you'll see `dead_code` warnings on the day functions; that's expected and you can ignore them.
+
+## Stuck? Peek at the solutions
+
+The solutions live on a separate `solutions` branch so they don't spoil the main workflow. When you want to see a reference implementation:
+
+```bash
+git checkout solutions
+cargo test solution      # run only the solution tests (all should pass)
+git checkout main        # back to your work
+```
+
+On the `solutions` branch you'll find `src/dayXX_solution.rs` next to the templates — read, compare, then come back and finish your own.
+
+## Submitting your work
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the fork → branch → PR flow.
+
 ## Days planning (Monday 27th of April 2026 - Friday 8th of May 2026)
 
 | Day | Topic |
