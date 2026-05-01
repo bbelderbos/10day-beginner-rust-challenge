@@ -16,7 +16,7 @@ In Python you might reach for `@dataclass` or a (typed) named tuple. Rust splits
 
 In today's mini challenge, you'll define a `Temperature` struct, and then implement some methods on it. The syntax is a bit different from Python, but the concepts are the same: you have a type that holds data, and you can define methods on it.
 
-More concepts map to Python: when I read `Temperature::new(celsius)`, I think of a `@classmethod` constructor. We have to implement something like this, because struct fields are private by default (we did not open them up with `pub`), I like this enforced encapsulation, safer by default.
+More concepts map to Python: when I read `Temperature::new(celsius)`, I think of a `@classmethod` constructor. Struct fields are private to outside callers by default (we did not open them up with `pub`), so a constructor like this gives us a clean public API. I like this enforced encapsulation, safer by default.
 
 `&self` borrows in read-only mode by default. If we want to mutate, we need `&mut self`. We don't use it here yet, but from building a JSON parser (our cohort), I can tell you how nice it is to see at the signature level where data gets read vs mutated.
 
