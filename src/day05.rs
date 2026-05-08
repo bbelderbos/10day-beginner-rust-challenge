@@ -15,7 +15,18 @@ struct Temperature {
 }
 
 impl Temperature {
-    // your methods here
+    fn new(celsius: f64) -> Self {
+        todo!()
+    }
+    fn to_fahrenheit(&self) -> f64 {
+        todo!()
+    }
+    fn is_fever(&self) -> bool {
+        todo!()
+    }
+    fn describe(&self) -> String {
+        todo!()
+    }
 }
 
 #[cfg(test)]
