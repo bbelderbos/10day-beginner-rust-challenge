@@ -7,6 +7,7 @@ mod day06_solution;
 mod day07_solution;
 mod day08_solution;
 mod day09_solution;
+mod day10_solution;
 
 fn main() {
     println!("Welcome to the 10 day beginner Rust challenge!");
