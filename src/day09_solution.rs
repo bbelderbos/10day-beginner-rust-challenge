@@ -8,14 +8,12 @@ fn top_scorers(records: &[&str], threshold: u32) -> Vec<String> {
         .filter_map(|record| {
             let (name, score_str) = record.split_once(':')?;
             let score: u32 = score_str.trim().parse().ok()?;
-            if score >= threshold {
-                Some((name.trim().to_string(), score))
-            } else {
-                None
-            }
+            // `.then(|| ...)` turns a bool into Option, keeping the happy path flat.
+            (score >= threshold).then(|| (name.trim().to_string(), score))
         })
         .collect();
-    pairs.sort_by(|a, b| b.1.cmp(&a.1));
+    // `sort_by_key` + `Reverse` reads cleaner than a manual `b.cmp(&a)` comparator.
+    pairs.sort_by_key(|&(_, score)| std::cmp::Reverse(score));
     pairs
         .into_iter()
         .map(|(name, score)| format!("{} ({})", name, score))
@@ -26,8 +24,9 @@ fn top_scorers(records: &[&str], threshold: u32) -> Vec<String> {
 // and returns a u32 fits — named functions, closures, even closures that capture
 // variables from the surrounding scope. Closer to Python's "functions are values"
 // than to a pattern like `Callable[[int], int]` from the typing module.
+// `.copied()` turns the `&u32` iterator into a `u32` one, so we can pass `bonus` directly.
 fn apply_bonus(scores: &[u32], bonus: impl Fn(u32) -> u32) -> Vec<u32> {
-    scores.iter().map(|&s| bonus(s)).collect()
+    scores.iter().copied().map(bonus).collect()
 }
 
 #[cfg(test)]
