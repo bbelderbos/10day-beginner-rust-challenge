@@ -4,34 +4,51 @@ use std::collections::HashMap;
 // counter — equivalent to Python's `Counter`
 // `*` dereferences the &mut value returned by entry() so we can `+= 1` it.
 // Punctuation is stripped via `chars().filter(is_alphabetic)`.
+// `flat_map(|c| c.to_lowercase())` does the lowercase in the same iterator pass
+// instead of building a String and then calling `.to_lowercase()` on it (which
+// would allocate twice per word). `char::to_lowercase` returns an iterator
+// because one char can lowercase to multiple (e.g. Turkish 'İ' → 'i' + dot),
+// hence `flat_map` rather than `map`.
 fn word_count(text: &str) -> HashMap<String, usize> {
     let mut map: HashMap<String, usize> = HashMap::new();
     for word in text.split_whitespace() {
-        let clean: String = word.chars().filter(|c| c.is_alphabetic()).collect();
+        let clean: String = word
+            .chars()
+            .filter(|c| c.is_alphabetic())
+            .flat_map(|c| c.to_lowercase())
+            .collect();
         if !clean.is_empty() {
-            *map.entry(clean.to_lowercase()).or_insert(0) += 1;
+            *map.entry(clean).or_insert(0) += 1;
         }
     }
     map
 }
 
-// Sort by descending count, ties broken alphabetically. `sort_by` takes a comparator
-// closure — `b.cmp(a)` flips the order. `.then(...)` chains a secondary sort key.
+// Sort by descending count, ties broken alphabetically. The comparator closure
+// uses `b.cmp(a)` to flip the order and `.then(...)` to chain a secondary key.
 // We borrow the keys as &str to avoid cloning Strings into the result.
+// `sort_unstable_by` is faster and uses less memory than `sort_by`. The catch
+// is that it doesn't preserve the relative order of equal elements — but our
+// tie-breaker (alphabetical) already makes the result deterministic, so there
+// are no "equal elements" left for stability to matter. Default to unstable
+// whenever you have a total ordering.
 fn top_n(map: &HashMap<String, usize>, n: usize) -> Vec<(&str, usize)> {
     let mut pairs: Vec<(&str, usize)> = map.iter().map(|(k, &v)| (k.as_str(), v)).collect();
-    pairs.sort_by(|a, b| b.1.cmp(&a.1).then(a.0.cmp(&b.0)));
+    pairs.sort_unstable_by(|a, b| b.1.cmp(&a.1).then(a.0.cmp(b.0)));
     pairs.into_iter().take(n).collect()
 }
 
 // The capstone wires `word_count` and `top_n` together into a single helper.
 // `into_iter().map(...).collect()` is the workhorse iterator pattern: own the
 // pairs, transform them into formatted strings, and gather them into a Vec.
+// `format!("{word} ({count})")` uses captured identifiers (stable since Rust
+// 1.58) — same as Python f-strings. Reads better than positional `{}, {}`
+// because you don't have to mentally line up the placeholders with arguments.
 fn summarize(text: &str, n: usize) -> Vec<String> {
     let counts = word_count(text);
     top_n(&counts, n)
         .into_iter()
-        .map(|(word, count)| format!("{} ({})", word, count))
+        .map(|(word, count)| format!("{word} ({count})"))
         .collect()
 }
 
