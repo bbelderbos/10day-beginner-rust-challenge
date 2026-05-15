@@ -10,10 +10,7 @@ fn describe_types() -> String {
     let letter = 'Z';
     let pair = (7, "Rust");
 
-    format!(
-        "int: {}, float: {}, bool: {}, char: {}, tuple: {:?}",
-        int, float, flag, letter, pair
-    )
+    format!("int: {int}, float: {float}, bool: {flag}, char: {letter}, tuple: {pair:?}")
 }
 
 #[cfg(test)]
